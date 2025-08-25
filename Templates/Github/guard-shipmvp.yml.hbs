@@ -1,0 +1,14 @@
+name: Guard shipmvp
+on: [pull_request]
+jobs:
+  block-edits:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0, submodules: recursive }
+      - name: Fail if changed files inside shipmvp/
+        run: |
+          if git diff --name-only origin/${{ github.base_ref }}... | grep '^shipmvp/'; then
+            echo "Do not modify files inside 'shipmvp/'. Update submodule version instead."
+            exit 1
+          fi

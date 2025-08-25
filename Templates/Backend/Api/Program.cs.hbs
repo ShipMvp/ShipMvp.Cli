@@ -1,0 +1,26 @@
+using Microsoft.EntityFrameworkCore;
+using ShipMvp.Infrastructure; // AppDbContext (from submodule)
+using ShipMvp.Modularity;    // ModuleLoader (from submodule)
+
+var builder = WebApplication.CreateBuilder(args);
+
+// One DB for all modules; migrations live in {{MigrationsAssembly}}
+builder.Services.AddDbContext<AppDbContext>(opts =>
+{
+    var cs = builder.Configuration.GetConnectionString("Default")
+          ?? "Host=localhost;Port=5432;Database=shipmvp;Username=postgres;Password=ShipMVPPass123!";
+    opts.UseNpgsql(cs, b => b.MigrationsAssembly("{{MigrationsAssembly}}"));
+});
+
+builder.AddDiscoveredModules();
+
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
+var app = builder.Build();
+app.UseSwagger(); app.UseSwaggerUI();
+
+app.MapGet("/", () => Results.Ok("{{Name}} API running"));
+app.MapDiscoveredModules();
+
+app.Run();

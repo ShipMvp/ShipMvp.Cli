@@ -1,0 +1,11 @@
+{
+  "Name": "",
+  "Org": "your-org",
+  "ShipMvpRepo": "https://github.com/your-org/shipmvp",
+  "ShipMvpBranch": "stable",
+  "FrontendRepo": "https://github.com/your-org/shipmvp-react",
+  "PackageManager": "pnpm",
+  "FrontendAppName": "",
+  "ApiProject": "",
+  "MigrationsProject": ""
+}

@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+  <OutputType>Exe</OutputType>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+
+    <!-- Tool packaging -->
+    <PackAsTool>true</PackAsTool>
+    <ToolCommandName>shipmvp</ToolCommandName>
+    <PackageId>ShipMvp.Cli</PackageId>
+    <Version>0.1.0</Version>
+    <Authors>your-org</Authors>
+    <Description>ShipMVP CLI - scaffold and manage ShipMVP-based projects</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.CommandLine" Version="2.0.0-beta4.22272.1" />
+    <PackageReference Include="Spectre.Console" Version="0.49.1" />
+  </ItemGroup>
+
+  <!-- Ship template files with the tool -->
+  <ItemGroup>
+    <None Include="Templates\**\*.*" CopyToOutputDirectory="Always" />
+  </ItemGroup>
+</Project>
