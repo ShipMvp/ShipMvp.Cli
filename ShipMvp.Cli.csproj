@@ -10,7 +10,7 @@
     <ToolCommandName>shipmvp</ToolCommandName>
     <PackageId>ShipMvp.Cli</PackageId>
     <Version>0.1.0</Version>
-    <Authors>your-org</Authors>
+    <Authors>ShipMvp</Authors>
     <Description>ShipMVP CLI - scaffold and manage ShipMVP-based projects</Description>
   </PropertyGroup>
 

@@ -11,10 +11,10 @@ public static class NewCommand
     {
         var cmd = new Command("new", "Create a new ShipMVP project");
         var name = new Argument<string>("name", "Project name (solution/repo)");
-        var org  = new Option<string>("--org", () => "your-org");
-        var shipRepo = new Option<string>("--shipmvp-repo", () => "https://github.com/your-org/shipmvp");
+        var org  = new Option<string>("--org", () => "ShipMvp");
+        var shipRepo = new Option<string>("--shipmvp-repo", () => "https://github.com/ShipMvp/shipmvp");
         var shipBranch = new Option<string>("--shipmvp-branch", () => "stable");
-        var feRepo = new Option<string>("--frontend-repo", () => "https://github.com/your-org/shipmvp-react");
+        var feRepo = new Option<string>("--frontend-repo", () => "https://github.com/ShipMvp/shipmvp-react");
         var pkg = new Option<string>("--pkg", () => "pnpm");
 
         cmd.AddArgument(name);
